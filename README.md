@@ -100,8 +100,6 @@ CREATE TABLE users (
 
 ## ▶️ Running the Project
 
-```
-```
 ### Install Dependencies
 ```bash
 npm install
