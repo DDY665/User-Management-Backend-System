@@ -96,9 +96,6 @@ CREATE TABLE users (
 );
 
 ```
-```
-
-```
 ---
 
 ## ▶️ Running the Project
