@@ -74,9 +74,11 @@ DB_PASSWORD=your_mysql_password
 DB_NAME=mydb
 JWT_SECRET=your_secure_jwt_secret
 
+---
 
+```
 
-##🗄️ Database Schema
+## 🗄️ Database Schema
 
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -91,6 +93,7 @@ CREATE TABLE users (
 
 ```
 
+```
 
 ## ▶️ Running the Project
 
@@ -102,6 +105,8 @@ node backend/app.js
 
 Server will run on:
 http://localhost:3000
+
+---
 
 ## 🔐 API Endpoints
 
