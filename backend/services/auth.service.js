@@ -62,7 +62,7 @@ const loginUser = async (email, password) => {
   // password check
   const match = await bcrypt.compare(password, user.password);
 
-  // ❌ wrong password
+  //  wrong password
   if (!match) {
     const attempts = user.failed_attempts + 1;
 
@@ -94,7 +94,7 @@ const loginUser = async (email, password) => {
     throw error;
   }
 
-  // ✅ successful login → reset counters
+  //  successful login → reset counters
   await db.execute(
     "UPDATE users SET failed_attempts = 0, lock_until = NULL WHERE id = ?",
     [user.id]

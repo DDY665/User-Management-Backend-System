@@ -51,7 +51,7 @@ const changePassword = async (userId, oldPassword, newPassword) => {
     [hashedPassword, userId]
   );
 
-  return true; // ✅ IMPORTANT
+  return true; //  IMPORTANT
 };
 
 module.exports ={
