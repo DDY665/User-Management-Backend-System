@@ -165,4 +165,4 @@ http://localhost:3000
 ## 👤 About me
 
 - Darvish
-Backend Developer | Node.js | MySQL | Security-focused APIs
+- Backend Developer | Node.js | MySQL | Security-focused APIs
