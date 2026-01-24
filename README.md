@@ -110,6 +110,7 @@ node backend/app.js
 Server will run on:
 http://localhost:3000
 
+```
 ---
 
 ## 🔐 API Endpoints
