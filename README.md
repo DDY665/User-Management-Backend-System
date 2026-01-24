@@ -33,6 +33,8 @@ This project follows clean backend architecture principles and is designed to be
 
 ---
 
+```
+
 ## 📂 Project Structure
 
 BACKEND-MAIN/
@@ -60,6 +62,7 @@ BACKEND-MAIN/
 │ └── utils/
 │ └── response.util.js
 
+```
 ---
 
 ## ⚙️ Environment Variables
@@ -79,6 +82,8 @@ JWT_SECRET=your_secure_jwt_secret
 
 ## 🗄️ Database Schema
 
+```sql
+
 CREATE TABLE users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(255) UNIQUE NOT NULL,
@@ -90,6 +95,7 @@ CREATE TABLE users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+```
 ```
 
 ```
