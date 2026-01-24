@@ -106,13 +106,13 @@ npm install
 
 ```
 
-## Start Server
+### Start Server
 
 ```bash
 node backend/app.js
 ```
 
-## Server will run on:
+### Server will run on:
 
 ```bash
 http://localhost:3000
