@@ -104,10 +104,17 @@ CREATE TABLE users (
 ```bash
 npm install
 
-Start Server
-node backend/app.js
+```
 
-Server will run on:
+## Start Server
+
+```bash
+node backend/app.js
+```
+
+## Server will run on:
+
+```bash
 http://localhost:3000
 
 ```
