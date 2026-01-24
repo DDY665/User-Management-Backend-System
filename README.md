@@ -110,19 +110,24 @@ http://localhost:3000
 
 ## 🔐 API Endpoints
 
-Auth Routes
-Method	        Endpoint	           Description
-POST	    /api/auth/signup	     Register new user
-POST	    /api/auth/login	         Login & receive JWT
+### Auth Routes
 
-User Routes
-Method	        Endpoint	             Access
-GET	         /api/users/me	          Authenticated
-PATCH	     /api/users/me	          Authenticated
-PATCH	  /api/users/me/password	  Authenticated
-GET	          /api/users	            Admin only
-PATCH	  /api/users/:id/block	        Admin only
-PATCH	 /api/users/:id/unblock	        Admin only
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/signup` | Register new user |
+| POST | `/api/auth/login` | Login & receive JWT |
+
+### User Routes
+
+| Method | Endpoint | Access |
+|--------|----------|--------|
+| GET | `/api/users/me` | Authenticated |
+| PATCH | `/api/users/me` | Authenticated |
+| PATCH | `/api/users/me/password` | Authenticated |
+| GET | `/api/users` | Admin only |
+| PATCH | `/api/users/:id/block` | Admin only |
+| PATCH | `/api/users/:id/unblock` | Admin only |
+
 
 ---
 
@@ -159,5 +164,5 @@ PATCH	 /api/users/:id/unblock	        Admin only
 
 ## 👤 About me
 
-Darvish
+- Darvish
 Backend Developer | Node.js | MySQL | Security-focused APIs
