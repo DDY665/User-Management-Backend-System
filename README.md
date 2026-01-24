@@ -74,9 +74,8 @@ DB_PASSWORD=your_mysql_password
 DB_NAME=mydb
 JWT_SECRET=your_secure_jwt_secret
 
----
-
 ```
+---
 
 ## 🗄️ Database Schema
 
@@ -94,6 +93,7 @@ CREATE TABLE users (
 ```
 
 ```
+---
 
 ## ▶️ Running the Project
 
