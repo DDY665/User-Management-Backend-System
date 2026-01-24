@@ -32,10 +32,10 @@ This project follows clean backend architecture principles and is designed to be
 - **Postman**
 
 ---
+## 📂 Project Structure
+
 
 ```
-
-## 📂 Project Structure
 
 BACKEND-MAIN/
 │
