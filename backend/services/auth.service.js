@@ -4,10 +4,8 @@ const db = require("../config/db");
 const MAX_ATTEMPTS = 5;
 const LOCK_TIME_MINUTES = 15;
 
-
-// REGISTER USER
+// REGISTER USER (Public)
 const registerUser = async (email, password) => {
-  // check if user already exists
   const [existing] = await db.execute(
     "SELECT id FROM users WHERE email = ?",
     [email]
@@ -15,14 +13,15 @@ const registerUser = async (email, password) => {
 
   if (existing.length > 0) {
     const error = new Error("Email already registered");
-    error.status = 409; // Conflict
+    error.status = 409;
     throw error;
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
   await db.execute(
-    "INSERT INTO users (email, password) VALUES (?, ?)",
+    `INSERT INTO users (email, password, role, must_change_password, onboarding_status)
+     VALUES (?, ?, 'user', FALSE, 'ACTIVE')`,
     [email, hashedPassword]
   );
 };
@@ -34,7 +33,6 @@ const loginUser = async (email, password) => {
     [email]
   );
 
-  // user not found
   if (rows.length === 0) {
     const error = new Error("Invalid credentials");
     error.status = 401;
@@ -43,30 +41,26 @@ const loginUser = async (email, password) => {
 
   const user = rows[0];
 
-  // account blocked by admin
+  // Admin blocked
   if (!user.is_active) {
     const error = new Error("Account is blocked");
     error.status = 403;
     throw error;
   }
 
-  // account locked due to failed attempts
+  // Temporarily locked
   if (user.lock_until && new Date(user.lock_until) > new Date()) {
-    const error = new Error(
-      "Account locked due to multiple failed login attempts. Try again later."
-    );
-    error.status = 423; // Locked
+    const error = new Error("Account locked due to multiple failed login attempts. Try again later.");
+    error.status = 423;
     throw error;
   }
 
-  // password check
   const match = await bcrypt.compare(password, user.password);
 
-  //  wrong password
+  //  Wrong password
   if (!match) {
     const attempts = user.failed_attempts + 1;
 
-    // lock account if limit reached
     if (attempts >= MAX_ATTEMPTS) {
       await db.execute(
         `UPDATE users
@@ -83,7 +77,6 @@ const loginUser = async (email, password) => {
       throw error;
     }
 
-    // increment failed attempts
     await db.execute(
       "UPDATE users SET failed_attempts = ? WHERE id = ?",
       [attempts, user.id]
@@ -94,13 +87,27 @@ const loginUser = async (email, password) => {
     throw error;
   }
 
-  //  successful login → reset counters
+  //  Successful login → reset counters
   await db.execute(
     "UPDATE users SET failed_attempts = 0, lock_until = NULL WHERE id = ?",
     [user.id]
   );
 
-  return user;
+  //  Onboarding enforcement
+  if (user.must_change_password) {
+    return {
+      forcePasswordChange: true,
+      id: user.id,
+      email: user.email,
+      role: user.role
+    };
+  }
+
+  return {
+    id: user.id,
+    email: user.email,
+    role: user.role
+  };
 };
 
 module.exports = {

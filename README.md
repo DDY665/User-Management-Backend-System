@@ -5,7 +5,7 @@ This project follows clean backend architecture principles and is designed to be
 
 ---
 
-## 🚀 Features
+##  Features
 
 - User Signup & Login
 - JWT-based Stateless Authentication
@@ -21,7 +21,7 @@ This project follows clean backend architecture principles and is designed to be
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Node.js**
 - **Express.js**
@@ -32,7 +32,7 @@ This project follows clean backend architecture principles and is designed to be
 - **Postman**
 
 ---
-## 📂 Project Structure
+##  Project Structure
 
 
 ```
@@ -65,7 +65,7 @@ BACKEND-MAIN/
 ```
 ---
 
-## ⚙️ Environment Variables
+##  Environment Variables
 
 Create a `.env` file in the root directory:
 
@@ -80,7 +80,7 @@ JWT_SECRET=your_secure_jwt_secret
 ```
 ---
 
-## 🗄️ Database Schema
+##  Database Schema
 
 ```sql
 
@@ -98,7 +98,7 @@ CREATE TABLE users (
 ```
 ---
 
-## ▶️ Running the Project
+##  Running the Project
 
 ### Install Dependencies
 ```bash
@@ -120,7 +120,7 @@ http://localhost:3000
 ```
 ---
 
-## 🔐 API Endpoints
+##  API Endpoints
 
 ### Auth Routes
 
@@ -143,7 +143,7 @@ http://localhost:3000
 
 ---
 
-## 🔒 Security Highlights
+##  Security Highlights
 
 - Passwords stored only as bcrypt hashes
 - JWT tokens signed with secret key
@@ -153,7 +153,7 @@ http://localhost:3000
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 - All endpoints were tested using Postman, including:
 - Authentication flows
@@ -161,20 +161,3 @@ http://localhost:3000
 - Role-based access control
 - Brute-force lock logic
 - Error handling
-
----
-
-## 🧠 Learning Outcomes
-
-- Designed a clean backend architecture
-- Implemented real-world authentication & authorization
-- Handled security edge cases (brute-force attacks)
-- Worked with MySQL safely using parameterized queries
-- Built a production-style REST API
-
----
-
-## 👤 About me
-
-- Darvish
-- Backend Developer | Node.js | MySQL | Security-focused APIs

@@ -9,3 +9,4 @@ const success = (res, message, data = null) => {
 module.exports = {
   success
 };
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              

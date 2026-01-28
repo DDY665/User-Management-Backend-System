@@ -3,7 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
-// body parser (must come before routes)
 app.use(express.json());
 
 // routes
@@ -13,7 +12,7 @@ const userRoutes = require("./routes/user.routes");
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 
-// error handler (MUST be last)
+// error handler 
 const errorHandler = require("./middleware/error.middleware");
 app.use(errorHandler);
 
